@@ -16,4 +16,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  // ДОБАВЛЕНО ДЛЯ GITHUB PAGES
+  base: '/Figma/', // Имя вашего репозитория "Figma"
+  
+  // Дополнительные настройки (опционально)
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+  },
+  server: {
+    port: 3000,
+    open: true,
+  }
 })
