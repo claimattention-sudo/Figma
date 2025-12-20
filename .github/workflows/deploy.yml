@@ -20,6 +20,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,12 +29,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'pnpm'
           
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
+      # ШАГ ДОБАВЛЕН - установка pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm@8
+          pnpm --version
           
       - name: Install dependencies
         run: pnpm install
